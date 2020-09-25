@@ -1,8 +1,11 @@
 import csv
 
 
+
+
 def file_spliter(data_path, file_name, column_to_split_on):
 
+    csv.field_size_limit(10000000)
     with open(data_path + "/RAW/" + file_name, encoding = 'utf-8') as file :
         file_dict = csv.DictReader(file, delimiter = '\t')
 
@@ -10,6 +13,8 @@ def file_spliter(data_path, file_name, column_to_split_on):
 
         for row in file_dict:
             file_column = row[column_to_split_on]
+            file_column = file_column.replace('\\', '.' )
+            file_column = file_column.replace('/', '.')
 
             if file_column not in already_opened_files:
                 out_file = open(data_path + f"/CURATED/{file_column}.csv", 'w', encoding='utf-8')

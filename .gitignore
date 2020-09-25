@@ -2,3 +2,5 @@
 # Both the directory itself and its contents will be ignored.
 data/
 .ipynb_checkpoints/
+.vscode/
+__pycache__/
