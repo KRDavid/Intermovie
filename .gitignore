@@ -4,4 +4,4 @@ data/
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
-functions/__pycache__
+functions/__pycache__/
