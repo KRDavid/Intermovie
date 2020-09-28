@@ -7,7 +7,7 @@ def requete():
     data_title = pd.concat([data_title1, data_title2], axis = 0)
     del data_title1
     del data_title2
-    data_title = data_title.drop(["titleType","originalTitle","isAdult","startYear","endYear","runtimeMinutes","genres"], axis = 1)
+    data_title = data_title.drop(["titleType","primaryTitle","isAdult","startYear","endYear","runtimeMinutes","genres"], axis = 1)
     data_title.set_index('tconst', inplace  = True)
     data_title_clean = data_title.dropna()
     del data_title
@@ -22,7 +22,7 @@ def requete():
     #fichier natio
     data_natio = pd.read_csv('./data/CURATED/title.akas/US.csv', sep=",")
     data_natio = data_natio.dropna()
-    data_natio = data_natio.drop(["ordering", "region", "language", "types", "attributes", "isOriginalTitle"], axis=1)
+    data_natio = data_natio.drop(["ordering", "region", "title", "language", "types", "attributes", "isOriginalTitle"], axis=1)
     data_natio_clean = data_natio.set_index('titleId')
     del data_natio
 
@@ -33,5 +33,6 @@ def requete():
     del data_natio_clean
 
     #convertion en csv
+    data_final = data_final.dropna()
     data_final.to_csv("./data/OUTPUT/csv_req_2.csv")
     del data_final
