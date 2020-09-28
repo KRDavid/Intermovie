@@ -30,3 +30,5 @@ class splitter:
 
             for output, _ in already_opened_files.values():
                 output.close()
+
+        print(f"Split fichier {file_name} terminé")
