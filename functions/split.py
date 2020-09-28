@@ -1,15 +1,17 @@
 import csv
 
 class splitter:
-    def __init__(self, data_folder):
+
+    def __init__(self, data_folder, delimiter):
         self.data_path = data_folder
+        self.delimiter = delimiter
 
 
     def file_splitter(self, file_name, column_to_split_on, output_folder):
 
         csv.field_size_limit(10000000)
         with open(self.data_path + "/RAW/" + file_name, encoding = 'utf-8') as file :
-            file_dict = csv.DictReader(file, delimiter = '\t')
+            file_dict = csv.DictReader(file, delimiter = self.delimiter)
 
             already_opened_files = {}
 
