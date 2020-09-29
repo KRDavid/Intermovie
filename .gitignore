@@ -1,6 +1,8 @@
 # Ignoring directories
 # Both the directory itself and its contents will be ignored.
-data/
+data/RAW/
+data/CURATED/
+data/OUTPUT
 .ipynb_checkpoints/
 .vscode/
 __pycache__/
